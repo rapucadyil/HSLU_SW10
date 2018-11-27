@@ -1,7 +1,3 @@
-package sw10;
-
-import sw04.Switchable;
-
 public class Licht implements Switchable{
 
     private int onOff;

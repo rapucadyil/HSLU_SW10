@@ -1,5 +1,3 @@
-package sw10;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
@@ -45,8 +43,6 @@ public class Motor implements Switchable{
             final PropertyChangeEvent pcEvent = new
                     PropertyChangeEvent(this, "state", MotorState.OFF, MotorState.ON);
             firePropertyChangeEvent(pcEvent);
-            System.out.println(String.format("Property: %s, Old Value: %s, New Value: %s",
-                    pcEvent.getPropertyName(), pcEvent.getOldValue(), pcEvent.getNewValue()));
         }
     }
 
@@ -56,9 +52,7 @@ public class Motor implements Switchable{
             this.state = MotorState.OFF;
             final PropertyChangeEvent pcEvent = new
                     PropertyChangeEvent(this, "state", MotorState.ON, MotorState.OFF);
-            //firePropertyChangeEvent(pcEvent);
-            System.out.println(String.format("Property: %s, Old Value: %s, New Value: %s",
-                    pcEvent.getPropertyName(), pcEvent.getOldValue(), pcEvent.getNewValue()));
+            firePropertyChangeEvent(pcEvent);
         }
     }
 
@@ -80,6 +74,8 @@ public class Motor implements Switchable{
         for (final PropertyChangeListener listener : this.changeListeners) {
             listener.propertyChange(pcEvent);
         }
+        System.out.println(String.format("Property: %s, Old Value: %s, New Value: %s",
+        pcEvent.getPropertyName(), pcEvent.getOldValue(), pcEvent.getNewValue()));
     }
 
     public static void main(String[] args) {

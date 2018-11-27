@@ -1,5 +1,3 @@
-package sw10;
-
 public interface Switchable {
 
     /** Schaltet das Switchable an
