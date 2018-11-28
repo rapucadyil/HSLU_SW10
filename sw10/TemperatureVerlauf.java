@@ -68,9 +68,10 @@ public class TemperatureVerlauf {
     public float getAverageTemperature() {
         float maxVal = this.getMaxTemperature();
         float minVal = this.getMinTemperature();
-        if (this.getCount() > 2)
-            return (maxVal + minVal) / (this.getCount());
-
+        if (this.getCount() > 2) {
+            var sum = maxVal + minVal;
+            return sum/2;
+        }
         return maxVal;
     }
     private void fireTempMaxEvent() {

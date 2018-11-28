@@ -73,8 +73,8 @@ public class Motor implements Switchable{
     private void firePropertyChangeEvent(final PropertyChangeEvent pcEvent) {
         for (final PropertyChangeListener listener : this.changeListeners) {
             listener.propertyChange(pcEvent);
-            System.out.println(String.format("Property: %s, Old Value: %s, New Value: %s",
-                    pcEvent.getPropertyName(), pcEvent.getOldValue(), pcEvent.getNewValue()));
+            /*System.out.println(String.format("Property: %s, Old Value: %s, New Value: %s",
+                    pcEvent.getPropertyName(), pcEvent.getOldValue(), pcEvent.getNewValue()));*/
         }
         System.out.println(String.format("Property: %s, Old Value: %s, New Value: %s",
         pcEvent.getPropertyName(), pcEvent.getOldValue(), pcEvent.getNewValue()));

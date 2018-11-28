@@ -5,7 +5,14 @@ public final class Temperature {
     static final float KELVIN_OFFSET = 273.15f;
 
     public Temperature(float c, String s) {
-        this.current = c;
+        try {
+            if (c > -273.15)
+                this.current = c;
+            else if (c > 0)
+                this.current = c;
+        }catch (IllegalArgumentException iae) {
+            System.out.println("Illegal Temperature argument");
+        }
         this.scale = s;
     }
 

@@ -1,7 +1,7 @@
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-class Auto implements Switchable {
+class Auto implements Switchable, PropertyChangeListener {
 
     private Motor motor;
     private Licht licht;
@@ -10,6 +10,7 @@ class Auto implements Switchable {
     public Auto() {
         this.licht = new Licht();
         this.motor = new Motor();
+        this.motor.addChangeListener(this);
         this.on = false;
     }
 
@@ -42,4 +43,13 @@ class Auto implements Switchable {
         return this.licht.isSwitchedOff() && this.motor.isSwitchedOff() && this.on ==false;
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        System.out.println("Motor is switched on!");
+    }
+
+    public void main(String[] args) {
+        Auto a = new Auto();
+        a.switchOn();
+    }
 }
