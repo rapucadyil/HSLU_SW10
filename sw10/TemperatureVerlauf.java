@@ -26,7 +26,8 @@ public class TemperatureVerlauf {
             event = TemperatureEvent.MAX;
             final TemperatureMaxEvent tEvent = new TemperatureMaxEvent(this, TemperatureEvent.MAX);
             System.out.println(String.format("Max Event, Source: %s, Value: %s", tEvent.getSource().toString(), tEvent.getValue()));
-        }else if (getMinTemperature() == t.getTemp()) {
+        }
+        if (getMinTemperature() == t.getTemp()) {
             event = TemperatureEvent.MIN;
             final TemperatureMinEvent tEvent = new TemperatureMinEvent(this, TemperatureEvent.MIN);
             System.out.println(String.format("Min Event, Source: %s, Value: %s", tEvent.getSource(), tEvent.getValue()));
